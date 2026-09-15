@@ -16,6 +16,14 @@
     }
     h1 { font-size: 1.75rem; }
     ul { padding-left: 1.2rem; }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      opacity: 0.75;
+    }
+    #visit-count {
+      font-variant-numeric: tabular-nums;
+    }
   </style>
 </head>
 <body>
@@ -28,5 +36,25 @@
       — <a href="/privacy.html">Privacy Policy</a>
     </li>
   </ul>
+  <footer>
+    <p>Visitors: <span id="visit-count">…</span></p>
+  </footer>
+  <script>
+    (function () {
+      var el = document.getElementById('visit-count');
+      fetch('https://abacus.jasoncameron.dev/hit/paveltotolin.dev/visits')
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data && typeof data.value === 'number') {
+            el.textContent = data.value.toLocaleString('en-US');
+          } else {
+            el.textContent = '—';
+          }
+        })
+        .catch(function () {
+          el.textContent = '—';
+        });
+    })();
+  </script>
 </body>
 </html>
