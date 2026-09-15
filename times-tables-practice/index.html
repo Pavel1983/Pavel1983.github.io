@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Times Tables Practice — Pavel Totolin</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 40rem;
+      padding: 2rem 1.25rem 4rem;
+      font: 1.05rem/1.5 system-ui, sans-serif;
+    }
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.2rem; margin-top: 1.75rem; }
+    ul { padding-left: 1.2rem; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+      gap: 0.75rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <p><a href="/">Home</a></p>
+  <h1>Times Tables Practice</h1>
+  <p>An educational game that helps children practise multiplication tables. Pick the tables to drill, choose a mode, and track progress and achievements on the device.</p>
+  <ul>
+    <li>Quiz modes with optional timer</li>
+    <li>Progress, weak facts, and achievements stored on the device</li>
+    <li>Language and sound settings</li>
+  </ul>
+  <p><a href="privacy.html">Privacy Policy</a></p>
+
+  <section id="screenshots" hidden>
+    <h2>Screenshots</h2>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <script>
+    (function () {
+      var section = document.getElementById('screenshots');
+      var gallery = document.getElementById('gallery');
+      var max = 8;
+
+      function tryLoad(index) {
+        if (index > max) return;
+        var img = new Image();
+        img.alt = 'Times Tables Practice screenshot ' + index;
+        img.onload = function () {
+          section.hidden = false;
+          gallery.appendChild(img);
+          tryLoad(index + 1);
+        };
+        img.src = 'screenshots/' + index + '.png';
+      }
+
+      tryLoad(1);
+    })();
+  </script>
+</body>
+</html>
