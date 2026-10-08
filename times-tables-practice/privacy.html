@@ -32,7 +32,7 @@
     <a href="/times-tables-practice/">Times Tables Practice</a>
   </nav>
   <h1>Privacy Policy — Times Tables Practice</h1>
-  <p class="meta">Last updated: 20 September 2026</p>
+  <p class="meta">Last updated: 8 October 2026</p>
 
   <p>This is the full privacy notice for <strong>Times Tables Practice</strong>. The same page is linked from the first-run screen in the app and is the URL we use on the Google Play store listing. The site is served over HTTPS.</p>
   <p>This notice describes what the game stores, what starts after you tap <strong>Got it</strong>, and which third parties then process data. It is written in plain language so a parent or guardian can see the practices before ads and analytics start.</p>
@@ -69,23 +69,28 @@
   <p>Unity’s own practices: <a href="https://unity.com/legal/privacy-policy">https://unity.com/legal/privacy-policy</a></p>
 
   <h2>Advertising</h2>
-  <p>After Got it, the app shows banner ads through <strong>Appodeal</strong> mediation. Appodeal and its demand partners (for example Google AdMob, Unity Ads, ironSource, and other networks enabled in the Appodeal dashboard) receive the technical data needed to request and fill a banner.</p>
+  <p>After Got it, the app shows a single banner ad from <strong>Google AdMob</strong>. AdMob is the only advertising SDK in the app, and it is part of Google Play’s Families Self-Certified Ads SDK Program. We do not use ad mediation or other ad networks.</p>
+
+  <h3>How ads are configured for children</h3>
+  <p>Every ad request is configured for children:</p>
+  <ul>
+    <li><strong>child-directed treatment</strong> is on (COPPA)</li>
+    <li>requests are marked as <strong>under the age of consent</strong> (GDPR and similar laws)</li>
+    <li>the maximum ad content rating is <strong>G</strong> (suitable for general audiences, including young children)</li>
+  </ul>
+  <p>With these settings Google does not show personalized or interest-based ads, does not use remarketing, and limits the data it uses to what is needed to serve and measure a contextual ad and to prevent fraud.</p>
 
   <h3>IP address</h3>
-  <p>Ad and analytics requests travel over the internet. The device’s <strong>IP address</strong> is typically included in those requests so the SDK can reach Appodeal and ad networks, choose a suitable ad, and limit fraud. We do not use IP address to identify a child by name.</p>
+  <p>Ad requests travel over the internet. The device’s <strong>IP address</strong> is included in those requests so Google can deliver an ad, choose one suitable for the region, and limit fraud. We do not use IP address to identify a child by name.</p>
 
   <h3>Advertising ID</h3>
-  <p>We do <strong>not</strong> declare or request the Android Advertising ID (AAID) permission. Our Android builds strip <code>com.google.android.gms.permission.AD_ID</code>. We do not use AAID for remarketing or interest-based advertising.</p>
-  <p>Appodeal’s SDK documentation states that mediation may process IP addresses and mobile advertising identifiers. On our builds the OS is not granted the advertising-ID permission, so partners should not receive a usable AAID from this app. They may still receive other technical device data needed to fill a contextual, child-directed banner.</p>
+  <p>We do <strong>not</strong> declare or request the Android Advertising ID (AAID) permission. Our Android builds strip <code>com.google.android.gms.permission.AD_ID</code>. We do not use AAID for remarketing or interest-based advertising. Google may still use other technical device data and app-scoped identifiers needed to serve a contextual, child-directed banner, cap how often it is shown, and prevent fraud.</p>
 
   <h3>Location</h3>
-  <p>We do not request location permission and we disable Appodeal’s location permission check. We do not collect precise GPS location. A coarse region may still be inferred from IP address by a network.</p>
-
-  <h3>Child-directed ads</h3>
-  <p>We configure the advertising SDK for child-directed use (<code>setChildDirectedTreatment</code>) before initialization. We do not request personalized or interest-based advertising. We do not use remarketing.</p>
-  <p>We do not send quiz answers, names, or emails to ad networks.</p>
-  <p>How Appodeal processes data, including IP address and advertising identifiers on their side: <a href="https://www.appodeal.com/privacy-policy">Appodeal Privacy Policy</a>.</p>
-  <p>Google’s practices (including AdMob): <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+  <p>We do not request location permission. We do not collect precise GPS location. A coarse region may still be inferred from IP address by Google or Unity.</p>
+  <p>We do not send quiz answers, names, or emails to Google or any ad partner.</p>
+  <p>How Google uses data from apps that show its ads: <a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a></p>
+  <p>Google’s privacy policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
 
   <h2>Children and child-directed use</h2>
   <p>This game is designed for children learning the times tables. We do not knowingly collect names, email addresses, phone numbers, or other information intended to directly contact a child.</p>
@@ -104,11 +109,9 @@
   <p>After Got it, analytics and ads are processed by:</p>
   <ul>
     <li>Unity (analytics) — <a href="https://unity.com/legal/privacy-policy">privacy policy</a></li>
-    <li>Appodeal (mediation) — <a href="https://www.appodeal.com/privacy-policy">privacy policy</a></li>
-    <li>Google (AdMob and related services, when that network fills) — <a href="https://policies.google.com/privacy">privacy policy</a></li>
-    <li>other demand sources enabled in the Appodeal dashboard, under their own policies</li>
+    <li>Google (AdMob advertising) — <a href="https://policies.google.com/privacy">privacy policy</a></li>
   </ul>
-  <p>Those parties may process data on their own terms. This notice does not replace their policies. We link Appodeal’s policy here because they require publishers to disclose IP address and advertising-ID practices and to point players to Appodeal’s notice.</p>
+  <p>Those parties may process data on their own terms. This notice does not replace their policies.</p>
 
   <h2>Where this notice appears</h2>
   <ul>
@@ -121,16 +124,16 @@
   <p>These providers may process data on servers in countries other than the one where you play, according to their own policies and applicable contractual and technical safeguards.</p>
 
   <h2>Security</h2>
-  <p>Analytics and ad requests use ordinary encrypted internet connections (HTTPS). Local game progress stays on the device. We do not operate a player account server.</p>
+  <p>Analytics and ad requests use encrypted internet connections (HTTPS). Local game progress stays on the device. We do not operate a player account server.</p>
 
   <h2>Retention</h2>
   <p>Local game data is deleted when you uninstall the app or clear app data. There is no account to delete on our side.</p>
-  <p>Data already collected by Unity, Appodeal, Google AdMob, or other advertising or analytics providers may remain with those providers under their own policies and procedures. Clearing the app does not erase copies they already hold.</p>
+  <p>Data already collected by Unity or Google may remain with those providers under their own policies and procedures. Clearing the app does not erase copies they already hold.</p>
 
   <h2>Your privacy rights</h2>
   <p>You (or a parent / guardian) may contact us to ask about personal data processed for this app, request rights that apply where you live, or ask for help with a privacy request.</p>
   <p>If you are in the Philippines, that includes rights under the Data Privacy Act of 2012. You may also complain to the National Privacy Commission. In other countries, a local data-protection authority may apply.</p>
-  <p>Uninstalling the app or clearing app data stops local collection on this device. It does not by itself delete data already held by Unity, Appodeal, or AdMob.</p>
+  <p>Uninstalling the app or clearing app data stops local collection on this device. It does not by itself delete data already held by Unity or Google.</p>
 
   <h2>How to contact us</h2>
   <p>Privacy contact: Pavel Totolin<br>
