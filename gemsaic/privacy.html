@@ -33,10 +33,10 @@
     <a href="/gemsaic/">Gemsaic</a>
   </nav>
   <h1>Privacy Policy — Gemsaic</h1>
-  <p class="meta">Last updated: 6 November 2026</p>
+  <p class="meta">Last updated: 11 November 2026</p>
 
   <p>This is the full privacy notice for <strong>Gemsaic</strong>, a puzzle game for Android in which you fill pixel-art pictures with jewels. This is the URL we use on the Google Play store listing. The site is served over HTTPS.</p>
-  <p>This notice describes what the game stores on your device, what data the advertising SDK collects, how in-app purchases work, what anonymous gameplay statistics the game sends, which third parties receive data, and what choices you have.</p>
+  <p>This notice describes what the game stores on your device, what data the advertising SDK collects, how in-app purchases work, what anonymous gameplay statistics the game sends, how we measure our own ad campaigns, which third parties receive data, and what choices you have.</p>
 
   <h2>Who we are</h2>
   <p>Gemsaic is made by Pavel Totolin, an independent developer. This notice applies to anyone who plays the game, wherever they are.</p>
@@ -68,7 +68,7 @@
     <li>ad interactions: which ads were requested, shown, clicked, or watched to the end, and ad revenue</li>
   </ul>
   <p>This data is used to deliver ads, limit how often the same ad is shown, measure ad performance and attribution, prevent fraud, and — if you allow it — show personalized (interest-based) ads.</p>
-  <p>Appodeal’s SDK also includes optional measurement and diagnostics services (such as Adjust, AppsFlyer, Firebase, Meta, and Sentry). When they are active, they receive similar technical data about the device, the app, and ad events.</p>
+  <p>Appodeal’s SDK also includes optional measurement and diagnostics services (such as Adjust, AppsFlyer, Meta, and Sentry). When they are active, they receive similar technical data about the device, the app, and ad events. Separately, the game itself uses Google Analytics for Firebase to measure our own ad campaigns — see “Ad campaign measurement” below.</p>
 
   <h3>Location and permissions</h3>
   <p>The game does not request location permission and does not collect precise GPS location. A coarse region may be inferred from the IP address by Appodeal or ad networks. The game does not access your contacts, camera, microphone, or photos.</p>
@@ -92,7 +92,7 @@
   <p>Gemsaic is built with the Unity engine. The engine may send anonymous technical data to Unity, such as device model, operating system, graphics hardware, and performance or crash information, to help Unity improve the engine. Unity’s practices: <a href="https://unity.com/legal/privacy-policy">https://unity.com/legal/privacy-policy</a></p>
   <h2>In-app purchases</h2>
   <p>The game offers one optional purchase: <strong>“Remove Ads”</strong>, a one-time purchase that turns off the banner and the interstitial ads. Payment is processed by <strong>Google Play</strong>. We never see or receive your card or bank details.</p>
-  <p>After a purchase, the store gives the game an order record: the product, an order ID, and a receipt signed by the store. The game checks the receipt’s signature on your device and saves on the device that ads are removed. When the game starts, it asks the store which one-time purchases your store account owns, so “Remove Ads” comes back after a reinstall or on a new device. The purchase is handled through Unity’s in-app purchasing library, which runs inside the game. We do not run a server that receives your purchases. If gameplay statistics are allowed (see below), the fact of the purchase — product, price, and currency — is included in them.</p>
+  <p>After a purchase, the store gives the game an order record: the product, an order ID, and a receipt signed by the store. The game checks the receipt’s signature on your device and saves on the device that ads are removed. When the game starts, it asks the store which one-time purchases your store account owns, so “Remove Ads” comes back after a reinstall or on a new device. The purchase is handled through Unity’s in-app purchasing library, which runs inside the game. We do not run a server that receives your purchases. If gameplay statistics are allowed (see below), the fact of the purchase — product, price, and currency — is included in them, both in Unity Analytics and in Google Analytics for Firebase.</p>
   <p>Google Play’s privacy policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
 
   <h2>Gameplay statistics (Unity Analytics)</h2>
@@ -104,8 +104,24 @@
     <li>purchase events: the product, price, and currency (never payment details)</li>
     <li>device and app information: device model, operating system and version, language, app version, and a coarse country or region derived from the IP address</li>
   </ul>
-  <p>We use these statistics only to improve the game. We do not use them for advertising, we do not pass them to ad networks, and we do not sell them.</p>
-  <p>You can turn gameplay statistics off at any time in the game’s Settings. In the same place you can ask Unity to delete the statistics already collected for your installation. Unity keeps the statistics according to its own retention rules: <a href="https://unity.com/legal/privacy-policy">https://unity.com/legal/privacy-policy</a></p>
+  <p>We use these Unity statistics only to improve the game. We do not use them for advertising, we do not pass them to ad networks, and we do not sell them. (A smaller, separate set of events goes to Google Analytics for Firebase to measure our ad campaigns; it is described in the next section.)</p>
+  <p>You can turn gameplay statistics off at any time in the game’s Settings. In the same place you can ask Unity to delete the statistics already collected for your installation (the same button also resets the Firebase data described below). Unity keeps the statistics according to its own retention rules: <a href="https://unity.com/legal/privacy-policy">https://unity.com/legal/privacy-policy</a></p>
+
+  <h2>Ad campaign measurement (Google Analytics for Firebase)</h2>
+  <p>We advertise Gemsaic, for example with Google Ads. To see which of our campaigns bring players who enjoy the game, and to let Google Ads optimize them, the game sends a small set of events to <strong>Google Analytics for Firebase</strong>, a service run by Google. Like the gameplay statistics, it is turned on only after you accept this policy in the game and only while the statistics switch in Settings → Privacy is on; turning the switch off stops it.</p>
+  <p>Google Analytics for Firebase receives:</p>
+  <ul>
+    <li>game events: levels started and finished (the level, result, stars, time spent, how much of the picture was filled, and whether boosters or rewarded videos were used), milestones such as “10 levels completed”, the first tutorial started and completed, Daily Challenge tries and completed parts, and rewarded videos watched to the end</li>
+    <li>ad events: each ad shown, its format, the ad network, and the ad revenue reported by Appodeal</li>
+    <li>purchase events: the “Remove Ads” purchase, its price, and currency (recorded by Firebase from Google Play; never payment details)</li>
+    <li>player properties: how many levels have been completed and whether “Remove Ads” was bought</li>
+    <li>events Firebase records by itself, such as the first launch, sessions, and app updates</li>
+    <li>identifiers: a random <strong>app instance ID</strong> created by Firebase for your installation and, if available, the device’s <strong>advertising ID</strong></li>
+    <li>device and app information: device model, operating system and version, language, app version, and a coarse country or region derived from the IP address</li>
+  </ul>
+  <p>Google uses this data to provide the analytics to us and, through Google Ads, to attribute installs and in-game events to our ad campaigns and to optimize those campaigns. In the EEA, the UK, and Switzerland, using the data for ads (ad storage, ad user data, and ad personalization) follows the choice you make in Google’s consent form; if you refuse, the data is used for analytics only. We do not sell this data.</p>
+  <p>For players who are signed in to a Google account and have allowed ads personalization in it, Google may associate these statistics with that account. This gives us aggregated reports on age, gender, and interests and lets us build audiences for our Google Ads campaigns; we never see who you are. You control this in your Google account: <a href="https://myadcenter.google.com/">My Ad Center</a> (turn off personalized ads) and <a href="https://myaccount.google.com/activitycontrols">activity controls</a>.</p>
+  <p><strong>Settings → Privacy → Delete my data</strong> stops the collection and resets the Firebase app instance ID and the data still stored on the device. Google’s practices: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a> and <a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a></p>
 
   <h2>Game settings from Unity Gaming Services</h2>
   <p>When the game starts, it downloads its settings (for example, how and when ads are shown) from <strong>Unity Gaming Services</strong>, a service run by Unity Technologies. To do this, Unity creates an <strong>anonymous player ID</strong> for your installation; gameplay statistics use the same ID. It is a random identifier that is not linked to your name, email, or any account. With each request Unity also sees basic device information: device model, operating system and version, app version, language, and the IP address (from which a coarse country or region may be derived). Unity uses this data only to deliver the right settings to the game and to keep the service running. Unity’s practices: <a href="https://unity.com/legal/privacy-policy">https://unity.com/legal/privacy-policy</a></p>
@@ -121,8 +137,8 @@
   <h2>Legal bases (EEA, UK, and Switzerland)</h2>
   <p>Under the GDPR and similar laws we rely on these legal bases:</p>
   <ul>
-    <li><strong>Consent</strong> — personalized (interest-based) ads and the related ad measurement. You give or refuse it in Google’s consent form and can change it in Settings → Privacy → Ad privacy choices.</li>
-    <li><strong>Legitimate interests</strong> — showing non-personalized ads to fund a free game, limiting how often ads appear, preventing ad fraud, gameplay statistics to balance and fix the game, and downloading game settings. You can object: turn off the statistics switch, refuse personalized ads, or write to us.</li>
+    <li><strong>Consent</strong> — personalized (interest-based) ads and the related ad measurement, including the use of Google Analytics for Firebase data for Google Ads and its association with Google accounts. You give or refuse it in Google’s consent form and can change it in Settings → Privacy → Ad privacy choices.</li>
+    <li><strong>Legitimate interests</strong> — showing non-personalized ads to fund a free game, limiting how often ads appear, preventing ad fraud, gameplay statistics to balance and fix the game, analytics of our own ad campaigns in Google Analytics for Firebase, and downloading game settings. You can object: turn off the statistics switch, refuse personalized ads, or write to us.</li>
     <li><strong>Performance of a contract</strong> — processing the “Remove Ads” purchase and restoring it on your devices.</li>
   </ul>
   <p>Data stored only on your device (your progress and settings) is used solely to provide the game you asked for.</p>
@@ -132,6 +148,7 @@
     <li>Appodeal (ad mediation) — <a href="https://appodeal.com/privacy-policy/">privacy policy</a></li>
     <li>ad networks and demand partners working through Appodeal, including Google AdMob — <a href="https://www.appodeal.com/home/partners-privacy-policies/">partner list</a></li>
     <li>Unity (game engine, Unity Gaming Services, and Unity Analytics) — <a href="https://unity.com/legal/privacy-policy">privacy policy</a></li>
+    <li>Google (Google Analytics for Firebase and Google Ads, to measure our ad campaigns) — <a href="https://policies.google.com/privacy">privacy policy</a></li>
     <li>Google Play (payments for in-app purchases) — <a href="https://policies.google.com/privacy">privacy policy</a></li>
   </ul>
   <p>These parties process data under their own policies. This notice does not replace their policies. We do not sell personal data for money. Sharing data with ad partners for interest-based advertising may count as “sharing” or “selling” under some laws (for example the California Consumer Privacy Act); you can stop it with the Android advertising settings described above.</p>
@@ -140,17 +157,17 @@
   <p>Gemsaic is a general-audience game and is not directed at children under 13 (or the minimum age in your country). We do not knowingly collect personal data from children. If you believe a child has used the game and data was collected, contact us and we will help.</p>
 
   <h2>International processing</h2>
-  <p>Appodeal, ad networks, and Unity may process data on servers in countries other than the one where you play, including the United States. Some ad partners that can take part in ad auctions are based in countries without an EU adequacy decision — for example <strong>Yandex</strong> (Russia) and <strong>ByteDance / Pangle</strong> and <strong>Bigo Ads</strong> (China and Singapore). These transfers rely on the providers’ own safeguards, such as the EU Standard Contractual Clauses. The full list of ad partners is on <a href="https://www.appodeal.com/home/partners-privacy-policies/">Appodeal’s partner page</a>.</p>
+  <p>Appodeal, ad networks, Unity, and Google may process data on servers in countries other than the one where you play, including the United States. Some ad partners that can take part in ad auctions are based in countries without an EU adequacy decision — for example <strong>Yandex</strong> (Russia) and <strong>ByteDance / Pangle</strong> and <strong>Bigo Ads</strong> (China and Singapore). These transfers rely on the providers’ own safeguards, such as the EU Standard Contractual Clauses. The full list of ad partners is on <a href="https://www.appodeal.com/home/partners-privacy-policies/">Appodeal’s partner page</a>.</p>
 
   <h2>Security</h2>
   <p>Ad requests, gameplay statistics, and store requests use encrypted internet connections (HTTPS). Game progress stays on the device. We do not operate a player account server.</p>
 
   <h2>Retention</h2>
   <p>Local game data is kept until you uninstall the app or clear its data. There is no account to delete on our side.</p>
-  <p>Data already collected by Appodeal, ad networks, or Unity is kept by those providers according to their own policies. Clearing the app does not erase copies they already hold. To delete gameplay statistics, use the option in the game’s Settings before you clear the app; for other data, use the contacts in the providers’ privacy policies.</p>
+  <p>Data already collected by Appodeal, ad networks, Unity, or Google is kept by those providers according to their own policies. Event data in Google Analytics for Firebase is kept for no longer than 14 months. Clearing the app does not erase copies they already hold. To delete gameplay statistics, use the option in the game’s Settings before you clear the app; for other data, use the contacts in the providers’ privacy policies.</p>
 
   <h2>Your privacy rights</h2>
-  <p>Depending on where you live (for example under the GDPR in Europe or the CCPA in California), you may have the right to access, correct, delete, or restrict the processing of your personal data, to object to it, and to withdraw consent. Because we do not hold personal data on our own servers, most requests are handled through Settings → Privacy in the game (ad privacy choices and the statistics switch), the Android advertising settings above, or directly with Appodeal and its partners — but you can always write to us and we will help.</p>
+  <p>Depending on where you live (for example under the GDPR in Europe or the CCPA in California), you may have the right to access, correct, delete, or restrict the processing of your personal data, to object to it, and to withdraw consent. Because we do not hold personal data on our own servers, most requests are handled through Settings → Privacy in the game (ad privacy choices and the statistics switch), the Android advertising settings above, or directly with Appodeal, its partners, and Google — but you can always write to us and we will help.</p>
   <p>You may also complain to your local data-protection authority.</p>
 
   <h2>How to contact us</h2>
