@@ -4,41 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Times Tables Practice — Pavel Totolin</title>
-  <style>
-    :root {
-      color-scheme: light dark;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 40rem;
-      padding: 2rem 1.25rem 4rem;
-      font: 1.05rem/1.5 system-ui, sans-serif;
-    }
-    h1 { font-size: 1.75rem; }
-    h2 { font-size: 1.2rem; margin-top: 1.75rem; }
-    ul { padding-left: 1.2rem; }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-      gap: 0.75rem;
-    }
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-  <p><a href="/">Home</a></p>
-  <h1>Times Tables Practice</h1>
+  <main class="page">
+  <nav class="topnav"><a href="/">Home</a></nav>
+  <header class="app-hero">
+    <span class="app-icon" aria-hidden="true"><img src="../assets/icon-times-tables.png" alt="" width="64" height="64"></span>
+    <div>
+      <h1>Times Tables Practice</h1>
+      <p class="tagline">Multiplication tables for children</p>
+    </div>
+  </header>
   <p>An educational game that helps children practise multiplication tables. Pick the tables to drill, choose a mode, and track progress and achievements on the device.</p>
-  <ul>
+  <ul class="features">
     <li>Quiz modes with optional timer</li>
     <li>Progress, weak facts, and achievements stored on the device</li>
     <li>Language and sound settings</li>
   </ul>
-  <p><a href="privacy.html">Privacy Policy</a></p>
+  <p class="links-row"><a class="btn" href="privacy.html">Privacy Policy</a></p>
 
   <section id="screenshots" hidden>
     <h2>Screenshots</h2>
@@ -66,5 +50,6 @@
       tryLoad(1);
     })();
   </script>
+  </main>
 </body>
 </html>

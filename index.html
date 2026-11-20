@@ -4,47 +4,433 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pavel Totolin</title>
+  <meta name="description" content="Pavel Totolin — independent developer making calm, friendly mobile games and learning apps.">
+  <link rel="canonical" href="https://paveltotolin.dev/">
+  <meta property="og:title" content="Pavel Totolin — independent app developer">
+  <meta property="og:description" content="Calm, friendly mobile games and learning apps.">
+  <meta property="og:url" content="https://paveltotolin.dev/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236a4cff'/%3E%3Cstop offset='1' stop-color='%2300a892'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-size='46' font-weight='800' fill='white' text-anchor='middle'%3EPT%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/site.css">
   <style>
-    :root {
-      color-scheme: light dark;
+    .hero {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.75rem;
+      align-items: center;
+      padding: 1rem 0 0.5rem;
     }
-    body {
-      margin: 0 auto;
-      max-width: 40rem;
-      padding: 2rem 1.25rem;
-      font: 1.05rem/1.5 system-ui, sans-serif;
+    @media (max-width: 34rem) {
+      .hero { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 1.25rem; }
+      .hero .links-row { justify-content: center; }
     }
-    h1 { font-size: 1.75rem; }
-    ul { padding-left: 1.2rem; }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      opacity: 0.75;
+
+    .avatar {
+      position: relative;
+      width: 9.5rem;
+      height: 9.5rem;
+      border-radius: 50%;
+      padding: 4px;
+      background: conic-gradient(from 210deg, var(--accent), var(--accent-2), #ff5fa2, var(--accent));
+      box-shadow: var(--shadow);
     }
-    #visit-count {
-      font-variant-numeric: tabular-nums;
+    .avatar img,
+    .avatar .monogram {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid var(--bg);
+      object-fit: cover;
+      display: block;
     }
+    .avatar .monogram {
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--surface-solid), var(--bg));
+      color: var(--accent);
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+    .avatar [hidden] { display: none !important; }
+    .avatar .badge {
+      position: absolute;
+      right: 0.35rem;
+      bottom: 0.45rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      font-size: 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 0.6rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 { margin-bottom: 0.35rem; }
+    .gradient-text {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .lead { margin: 0; font-size: 1.12rem; color: var(--muted); }
+    .hero .links-row { margin-top: 1.2rem; }
+
+    .about p { margin: 0 0 0.9rem; }
+    .about p:last-child { margin-bottom: 0; }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    .value {
+      padding: 1rem;
+      border-radius: 0.9rem;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+    }
+    .value strong { display: block; margin-bottom: 0.15rem; }
+    .value span { color: var(--muted); font-size: 0.93rem; }
+    .value .ico { font-size: 1.35rem; display: block; margin-bottom: 0.35rem; }
+
+    .apps { display: grid; gap: 0.9rem; padding: 0; margin: 0; list-style: none; }
+    .apps li { margin: 0; }
+    .app-card {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      padding: 1.1rem 1.25rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform 0.18s, border-color 0.18s;
+    }
+    .app-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .app-card .info { flex: 1; min-width: 0; }
+    .app-card .name { font-weight: 700; font-size: 1.1rem; }
+    .app-card .desc { color: var(--muted); font-size: 0.95rem; }
+    .app-card .tags { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .app-card .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .app-card .arrow { color: var(--accent); font-size: 1.3rem; transition: transform 0.18s; }
+    .app-card:hover .arrow { transform: translateX(3px); }
+
+    .contacts { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+    .contact {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1rem 1.1rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.18s, border-color 0.18s;
+    }
+    .contact:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .contact .ci {
+      width: 2.5rem; height: 2.5rem; flex: none;
+      display: grid; place-items: center;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+    }
+    .contact .ci svg { width: 1.25rem; height: 1.25rem; }
+    .contact small { display: block; color: var(--muted); font-size: 0.8rem; }
+    .contact span { overflow-wrap: anywhere; font-weight: 600; font-size: 0.88rem; min-width: 0; }
+
+    .web-card {
+      display: grid;
+      grid-template-columns: 11rem 1fr;
+      gap: 1.25rem;
+      align-items: center;
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, var(--bg-accent-2), transparent 55%),
+        var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform 0.18s, border-color 0.18s;
+    }
+    .web-card:hover { transform: translateY(-2px); border-color: var(--accent-2); }
+    @media (max-width: 34rem) { .web-card { grid-template-columns: 1fr; } }
+    .web-card .info { display: grid; gap: 0.35rem; }
+    .web-card .name { font-weight: 700; font-size: 1.1rem; }
+    .web-card .desc { color: var(--muted); font-size: 0.95rem; }
+    .web-card .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .web-card .tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .web-card .cta { color: var(--accent-2); font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem; }
+    .web-preview {
+      display: grid;
+      gap: 0.5rem;
+      align-content: start;
+      aspect-ratio: 4 / 3;
+      padding: 0.6rem;
+      border-radius: 0.8rem;
+      background: linear-gradient(160deg, #ff8a5c, #ff5fa2 45%, #6a4cff);
+      box-shadow: 0 8px 22px rgba(20, 16, 50, 0.25);
+    }
+    .web-preview .dots { display: flex; gap: 0.25rem; }
+    .web-preview .dots i { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: rgba(255, 255, 255, 0.75); }
+    .web-preview .bar { height: 1.6rem; border-radius: 0.35rem; background: rgba(255, 255, 255, 0.85); width: 70%; }
+    .web-preview .blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.35rem; }
+    .web-preview .blocks i { height: 2.4rem; border-radius: 0.35rem; background: rgba(255, 255, 255, 0.35); }
+
+    .section-note { display: inline-block; margin-left: 0.4rem; font-size: 0.85rem; font-weight: 500; color: var(--muted); }
+    #own h3 { margin: 1.25rem 0 0.75rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    #own h3:first-of-type { margin-top: 0.5rem; }
+
+    .work-group {
+      margin-bottom: 0.9rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .work-head {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .work-head > div { flex: 1; min-width: 0; }
+    .work-head strong { display: block; font-size: 1.05rem; }
+    .work-head span:not(.work-ico):not(.tech) { color: var(--muted); font-size: 0.9rem; }
+    .work-ico {
+      width: 2.5rem; height: 2.5rem; flex: none;
+      display: grid; place-items: center;
+      border-radius: 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      font-size: 1.2rem;
+    }
+    .tech {
+      flex: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+    .work-list { list-style: none; margin: 0; padding: 0.35rem 0; }
+    .work-list li { margin: 0; }
+    .work-list a, .work-list .row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.6rem;
+      padding: 0.55rem 1.25rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .work-list a:hover { background: var(--bg); }
+    .work-list a:hover .t { color: var(--accent); }
+    .work-list .t { font-weight: 600; }
+    .work-list .d { color: var(--muted); font-size: 0.9rem; }
+    .work-list .ext { margin-left: auto; color: var(--muted); }
+    .work-list .role {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 0.08rem 0.5rem; border-radius: 999px;
+      color: var(--accent-2); border: 1px solid currentColor;
+    }
+    .work-list .role--2 { color: var(--muted); }
+
+    #visit-count { font-variant-numeric: tabular-nums; }
   </style>
 </head>
 <body>
-  <h1>Pavel Totolin</h1>
-  <p>Independent app developer.</p>
-  <h2>Apps</h2>
-  <ul>
-    <li>
-      <a href="/times-tables-practice/">Times Tables Practice</a>
-      — multiplication tables for children
-    </li>
-    <li>
-      <a href="/gemsaic/">Gemsaic</a>
-      — jewel pixel-art puzzle
-    </li>
-  </ul>
-  <footer>
-    <p>Visitors: <span id="visit-count">…</span></p>
-  </footer>
+  <main class="page">
+    <header class="hero">
+      <div class="avatar">
+        <!-- Put your photo at assets/photo.jpg — until then a monogram is shown. -->
+        <img id="photo" src="assets/photo.jpg" alt="Pavel Totolin" width="152" height="152"
+             onerror="this.hidden=true;document.getElementById('monogram').hidden=false;">
+        <div class="monogram" id="monogram" hidden aria-hidden="true">PT</div>
+        <div class="badge" aria-hidden="true">🎮</div>
+      </div>
+      <div>
+        <span class="eyebrow">Game developer · C++ &amp; Unity · Spain</span>
+        <h1>Hi, I’m <span class="gradient-text">Pavel Totolin</span></h1>
+        <p class="lead">I build games — for studios and for myself. From classic PC titles in C++ to mobile hits in Unity, and now my own apps on Google Play.</p>
+        <p class="links-row">
+          <a class="btn btn--primary" href="#own">My projects</a>
+          <a class="btn" href="#work">Studio work</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </p>
+      </div>
+    </header>
+
+    <section class="about" aria-labelledby="about-title">
+      <h2 id="about-title">About me</h2>
+      <div class="card">
+        <p>I’ve spent my career making games. I started in C++ on PC titles like <strong>Farm Frenzy</strong> and <strong>Roads of Rome 2</strong>, then moved to Unity and mobile — leading development on hyper-casual games and later working on two of the largest projects at <strong>Tripledot Studios</strong>.</p>
+        <p>Today I also run my own small studio: I design, code and polish every app myself, from the first sketch to the release. My idea is simple — <strong>small things done carefully</strong>: clear rules, gentle difficulty, no clutter, and respect for players’ privacy and time.</p>
+        <div class="values">
+          <div class="value"><span class="ico" aria-hidden="true">🛠️</span><strong>C++ &amp; Unity</strong><span>From PC classics to mobile live games.</span></div>
+          <div class="value"><span class="ico" aria-hidden="true">🧩</span><strong>Thoughtful design</strong><span>Easy to start, satisfying to master.</span></div>
+          <div class="value"><span class="ico" aria-hidden="true">🚀</span><strong>Idea to release</strong><span>Design, code, store launch — end to end.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="own" aria-labelledby="own-title">
+      <h2 id="own-title">My projects <span class="section-note">made by me, from idea to release</span></h2>
+
+      <h3 id="apps">Mobile apps</h3>
+      <ul class="apps">
+        <li>
+          <a class="app-card" href="/gemsaic/">
+            <span class="app-icon" aria-hidden="true"><img src="assets/icon-gemsaic.png" alt="" width="64" height="64"></span>
+            <span class="info">
+              <span class="name">Gemsaic</span><br>
+              <span class="desc">Jewel pixel-art puzzle · out now on Google Play</span>
+              <span class="tags"><span class="tag">Puzzle</span><span class="tag">Pixel art</span><span class="tag">Unity</span></span>
+            </span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="app-card" href="/times-tables-practice/">
+            <span class="app-icon" aria-hidden="true"><img src="assets/icon-times-tables.png" alt="" width="64" height="64"></span>
+            <span class="info">
+              <span class="name">Times Tables Practice</span><br>
+              <span class="desc">Multiplication tables for children</span>
+              <span class="tags"><span class="tag">Education</span><span class="tag">Kids</span><span class="tag">Unity</span></span>
+            </span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
+
+      <h3 id="web">Websites</h3>
+      <a class="web-card" href="/Landings/">
+        <span class="web-preview" aria-hidden="true">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span class="bar"></span>
+          <span class="blocks"><i></i><i></i><i></i></span>
+        </span>
+        <span class="info">
+          <span class="name">Landing pages showcase</span>
+          <span class="desc">Fast, good-looking one-page sites for local businesses — live demos for cafés, bars, barbershops, pizzerias, nail studios and more, in English, Spanish and Russian.</span>
+          <span class="tags">
+            <span class="tag">☕ Café</span><span class="tag">🍸 Bar</span><span class="tag">💈 Barbershop</span><span class="tag">🍕 Pizza</span><span class="tag">🍺 Pub</span><span class="tag">💅 Nails</span><span class="tag">🎂 Cakes</span>
+          </span>
+          <span class="cta">Open showcase <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+    </section>
+
+    <section id="work" aria-labelledby="work-title">
+      <h2 id="work-title">Studio work <span class="section-note">games I built as part of a team</span></h2>
+
+      <div class="work-group">
+        <div class="work-head">
+          <span class="work-ico" aria-hidden="true">🧩</span>
+          <div><strong>Tripledot Studios</strong><span>Casual mobile games · two of the company’s largest projects</span></div>
+          <span class="tech">Unity</span>
+        </div>
+        <ul class="work-list">
+          <li><a href="https://apps.apple.com/us/app/triple-tile-match-puzzle-game/id1572661625" target="_blank" rel="noopener"><span class="t">Triple Tile</span><span class="d">Tile-matching puzzle</span><span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://merge-party.en.uptodown.com/android" target="_blank" rel="noopener"><span class="t">Merge Party!</span><span class="d">Merge game · project closed, archive page</span><span class="ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div class="work-group">
+        <div class="work-head">
+          <span class="work-ico" aria-hidden="true">📱</span>
+          <div><strong>Mobile arcade games</strong><span>Hyper-casual titles for iOS and Android</span></div>
+          <span class="tech">Unity</span>
+        </div>
+        <ul class="work-list">
+          <li><a href="https://iphone.apkpure.com/app/color-flop-arcade/com.icon.games.colorflop" target="_blank" rel="noopener"><span class="t">Color Flop</span><span class="role">Lead dev</span><span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://iphone.apkpure.com/app/juicy-jump/com.icon.games.juicyjump" target="_blank" rel="noopener"><span class="t">Juicy Jump</span><span class="role">Lead dev</span><span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://iphone.apkpure.com/app/hammer-hit/com.icon.games.hammerhit" target="_blank" rel="noopener"><span class="t">Hammer Hit</span><span class="role">Lead dev</span><span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://iphone.apkpure.com/app/switch-ride/com.icon.games.switchride" target="_blank" rel="noopener"><span class="t">Switch Ride</span><span class="role">Lead dev</span><span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><span class="row"><span class="t">Fruit Slash</span><span class="role">Lead dev</span><span class="d">no longer in stores</span></span></li>
+          <li><span class="row"><span class="t">Stealth Master</span><span class="role role--2">Developer</span></span></li>
+        </ul>
+      </div>
+
+      <div class="work-group">
+        <div class="work-head">
+          <span class="work-ico" aria-hidden="true">🖥️</span>
+          <div><strong>Classic PC games</strong><span>Where it all started</span></div>
+          <span class="tech">C++</span>
+        </div>
+        <ul class="work-list">
+          <li><a href="https://store.steampowered.com/app/38120/Farm_Frenzy/" target="_blank" rel="noopener"><span class="t">Farm Frenzy</span><span class="d">Time-management hit · Steam</span><span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://store.steampowered.com/app/411060/Roads_of_Rome_2/" target="_blank" rel="noopener"><span class="t">Roads of Rome 2</span><span class="d">Strategy / time management · Steam</span><span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://airsimmer.com" target="_blank" rel="noopener"><span class="t">AirSimmer</span><span class="d">Airbus A32x add-on for Microsoft Flight Simulator</span><span class="ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p class="muted">Questions, feedback, bug reports or just a hello — I read every message.</p>
+      <div class="contacts">
+        <a class="contact" href="mailto:support.pavel.totolin@gmail.com">
+          <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <span><small>Email</small>support.pavel.totolin@gmail.com</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>© <span id="year">2026</span> Pavel Totolin</span>
+      <span>Visitors: <span id="visit-count">…</span></span>
+    </footer>
+  </main>
   <script>
     (function () {
+      document.getElementById('year').textContent = new Date().getFullYear();
       var el = document.getElementById('visit-count');
       fetch('https://abacus.jasoncameron.dev/hit/paveltotolin.dev/visits')
         .then(function (res) { return res.json(); })

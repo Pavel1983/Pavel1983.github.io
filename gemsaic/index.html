@@ -4,42 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gemsaic — Pavel Totolin</title>
-  <style>
-    :root {
-      color-scheme: light dark;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 40rem;
-      padding: 2rem 1.25rem 4rem;
-      font: 1.05rem/1.5 system-ui, sans-serif;
-    }
-    h1 { font-size: 1.75rem; }
-    h2 { font-size: 1.2rem; margin-top: 1.75rem; }
-    ul { padding-left: 1.2rem; }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-      gap: 0.75rem;
-    }
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-  <p><a href="/">Home</a></p>
-  <h1>Gemsaic</h1>
+  <main class="page">
+  <nav class="topnav"><a href="/">Home</a></nav>
+  <header class="app-hero">
+    <span class="app-icon" aria-hidden="true"><img src="../assets/icon-gemsaic.png" alt="" width="64" height="64"></span>
+    <div>
+      <h1>Gemsaic</h1>
+      <p class="tagline">Jewel pixel-art puzzle</p>
+    </div>
+  </header>
   <p>A relaxing puzzle game: tap the stacks of jewels to send each gem to its place and fill pixel-art pictures from the bottom up. Plan your moves so the shelf never fills up.</p>
-  <ul>
+  <ul class="features">
     <li>Hand-made pixel-art levels with gentle difficulty</li>
     <li>Daily Challenge: build a seasonal room piece by piece</li>
     <li>Journal with every picture you have completed, sorted by theme</li>
     <li>Boosters: Magnet, +Slot, and Peek</li>
   </ul>
-  <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p>
+  <p class="links-row"><a class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.PavelTotolin.Gemsaic" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.5v19l10.2-9.5zM15.6 13.3l2.6 2.4-11.6 6.6zM15.6 10.7 6.6 1.7l11.6 6.6zM19.6 9.1l2.4 1.4c.9.5.9 1.6 0 2.1l-2.4 1.4-2.8-2.5z"/></svg>Get it on Google Play</a> <a class="btn" href="privacy.html">Privacy Policy</a> <a class="btn" href="terms.html">Terms of Service</a></p>
 
   <section id="screenshots" hidden>
     <h2>Screenshots</h2>
@@ -67,5 +51,6 @@
       tryLoad(1);
     })();
   </script>
+  </main>
 </body>
 </html>
