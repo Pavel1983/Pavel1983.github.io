@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ba-arricade — Pavel Totolin</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <main class="page">
+  <nav class="topnav"><a href="/">Home</a></nav>
+  <header class="app-hero">
+    <span class="app-icon" aria-hidden="true"><img src="../assets/icon-baaricade.png" alt="" width="64" height="64"></span>
+    <div>
+      <h1>Ba-arricade</h1>
+      <p class="tagline">Turn-based farm puzzle</p>
+    </div>
+  </header>
+  <p>The farmer is fencing off the pasture, and the rams keep wandering into the unfinished fence. Place signs, feeders and dogs to steer the flock, then watch the farmer walk his route. Close the fence without a single ram stepping on it, and the pasture turns into lawn.</p>
+  <ul class="features">
+    <li>Over 100 hand-checked levels in 10 chapters, each with a solution</li>
+    <li>Turn-based: no timers, no reflexes, just planning</li>
+    <li>Rams, lambs, a bull, a wolf, streams, rabbit burrows and apple trees</li>
+    <li>Hints and a short tutorial for the first levels</li>
+  </ul>
+  <p class="links-row"><span class="btn btn--primary" aria-disabled="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.5v19l10.2-9.5zM15.6 13.3l2.6 2.4-11.6 6.6zM15.6 10.7 6.6 1.7l11.6 6.6zM19.6 9.1l2.4 1.4c.9.5.9 1.6 0 2.1l-2.4 1.4-2.8-2.5z"/></svg>Coming soon to Google Play</span> <a class="btn" href="privacy.html">Privacy Policy</a></p>
+
+  <section id="screenshots" hidden>
+    <h2>Screenshots</h2>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <script>
+    (function () {
+      var section = document.getElementById('screenshots');
+      var gallery = document.getElementById('gallery');
+      var max = 8;
+
+      function tryLoad(index) {
+        if (index > max) return;
+        var img = new Image();
+        img.alt = 'Ba-arricade screenshot ' + index;
+        img.onload = function () {
+          section.hidden = false;
+          gallery.appendChild(img);
+          tryLoad(index + 1);
+        };
+        img.src = 'screenshots/' + index + '.png';
+      }
+
+      tryLoad(1);
+    })();
+  </script>
+  </main>
+</body>
+</html>
